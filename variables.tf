@@ -144,3 +144,45 @@ variable "aws_db_subnet_group_name" {
     default = {}
   
 }
+
+variable "vpc_id" {
+    type = map
+    default = {}
+  
+}
+
+variable "public_subnet_ids" {
+    type = map
+    default = {}
+    
+}
+
+variable "private_subnet_ids" {
+    type = map
+    default = {}
+    
+}
+
+variable "database_subnet_ids" {
+    type = map
+    default = {}
+    
+}
+
+variable "database_subnet_group_id" {
+    type = map
+    default = {}
+    
+}
+
+variable "database_subnet_group_name" {
+    type = map
+    default = {}
+    
+}
+
+variable "igw_id" {
+    type = map
+    default = {}
+    
+}
