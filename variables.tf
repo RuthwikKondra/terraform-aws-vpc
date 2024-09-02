@@ -1,38 +1,46 @@
-#### Project ####
-variable "project_name"{
+##project ##
+variable "project_name" {
     type = string
-}
 
-variable "environment"{
+  
+}
+variable "environment" {
     type = string
     default = "dev"
+  
 }
 
-variable "common_tags"{
+variable "common_tags" {
     type = map
+  
 }
 
-#### VPC ####
+
+##vpc##
+
 variable "vpc_cidr" {
     type = string
     default = "10.0.0.0/16"
+  
 }
 
 variable "enable_dns_hostnames" {
     type = bool
     default = true
+  
 }
 
 variable "vpc_tags" {
     type = map
     default = {}
+  
 }
 
-#### IGW ####
-variable "igw_tags"{
-    type = map
+variable "igw_tags" {
+    type = map  
     default = {}
 }
+
 
 ### Public Subnet ####
 variable "public_subnet_cidrs" {
@@ -48,7 +56,6 @@ variable "public_subnet_cidr_tags" {
     default = {}
 }
 
-
 ### Private Subnet ####
 variable "private_subnet_cidrs" {
     type = list
@@ -63,17 +70,16 @@ variable "private_subnet_cidr_tags" {
     default = {}
 }
 
-
-### Database Subnet ####
-variable "database_subnet_cidrs" {
+### DataBase Subnet ####
+variable "dataBase_subnet_cidrs" {
     type = list
     validation {
-        condition = length(var.database_subnet_cidrs) == 2
+        condition = length(var.dataBase_subnet_cidrs) == 2
         error_message = "Please provide 2 valid database subnet CIDR"
     }
 }
 
-variable "database_subnet_cidr_tags" {
+variable "dataBase_subnet_cidr_tags" {
     type = map
     default = {}
 }
@@ -83,29 +89,33 @@ variable "database_subnet_group_tags" {
     default = {}
 }
 
-#### Nat gateway ####
+##nat gateway_tags##
 variable "nat_gateway_tags" {
     type = map
     default = {}
+  
 }
 
-#### Public Route table ####
+##public route table 
+
 variable "public_route_table_tags" {
     type = map
     default = {}
+  
 }
 
-#### Private Route table ####
 variable "private_route_table_tags" {
     type = map
     default = {}
+  
 }
 
-#### Database Route table ####
 variable "database_route_table_tags" {
     type = map
     default = {}
+  
 }
+
 
 #### Peering ####
 variable "is_peering_required" {
@@ -121,4 +131,16 @@ variable "acceptor_vpc_id" {
 variable "vpc_peering_tags" {
   type = map
   default = {}
+}
+
+variable "aws_db_subnet_group" {
+    type = map
+    default = {}
+  
+}
+
+variable "aws_db_subnet_group_name" {
+    type = map
+    default = {}
+  
 }
